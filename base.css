@@ -1,0 +1,174 @@
+:root{
+  --blue: #1f4a6e;
+  --blue-dark: #1a2a44;
+  --panel: #f7f7f7;
+  --text: #333;
+  --muted: #777;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: #f0f2f5;
+}
+
+/* Top bars (title bar and nav) */
+header .titlebar {
+  background: #1b4f79;
+  color: #fff;
+  padding: 14px 0;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+header .titlebar span {
+  font-weight: 700;
+}
+
+nav {
+  background: #2b2f33;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 12px 0;
+  font-size: 14px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: var(--blue);
+  transition: width 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--blue);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+
+/* Main container with two cards side by side */
+.container {
+  width: min(1100px, 95%);
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 18px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 18px;
+  box-shadow: 0 2px 0 rgba(0,0,0,.03);
+}
+
+/* About Me card header style */
+.card-header {
+  background: #1f4a6e;
+  color: #fff;
+  padding: 12px 14px;
+  border-radius: 6px 6px 0 0;
+  font-weight: 700;
+  text-align: center;
+  margin: -18px -18px 16px -18px; /* emulate panel edge as in screenshot */
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  align-items: start;
+  gap: 18px;
+}
+
+.about-text p {
+  line-height: 1.5;
+  font-size: 14.5px;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin: 6px 0 12px;
+  padding-top: 8px;
+  border-top: 1px solid transparent;
+}
+
+.flag {
+  max-width: 180px;
+  height: auto;
+  border: 1px solid #ddd;
+  display: block;
+  margin: 6px 0 0;
+}
+
+.author-photo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  align-self: start;
+  margin-top: 8px;
+}
+
+/* Right rail (Web Dev Resources) */
+.resources ul {
+  padding-left: 20px;
+  margin: 6px 0;
+}
+.resources li {
+  margin: 8px 0;
+}
+.resources a {
+  color: #1a0dab;
+  text-decoration: underline;
+}
+
+/* Footer styling */
+footer {
+  margin-top: 14px;
+  background: #1f405b;
+  color: #fff;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 14px;
+}
+footer .year {
+  color: #ffd1e4;
+  margin-right: 6px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+  .author-photo {
+    display: block;
+    margin: 0 auto;
+  }
+}
