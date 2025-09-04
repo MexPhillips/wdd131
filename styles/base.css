@@ -1,4 +1,4 @@
-:root{
+:root {
   --blue: #1f4a6e;
   --blue-dark: #1a2a44;
   --panel: #f7f7f7;
@@ -6,7 +6,11 @@
   --muted: #777;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -23,6 +27,7 @@ header .titlebar {
   font-weight: 700;
   letter-spacing: .5px;
 }
+
 header .titlebar span {
   font-weight: 700;
 }
@@ -79,7 +84,7 @@ nav a:hover::after {
   border: 1px solid #cbd5e1;
   border-radius: 8px;
   padding: 18px;
-  box-shadow: 0 2px 0 rgba(0,0,0,.03);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, .03);
 }
 
 /* About Me card header style */
@@ -90,7 +95,8 @@ nav a:hover::after {
   border-radius: 6px 6px 0 0;
   font-weight: 700;
   text-align: center;
-  margin: -18px -18px 16px -18px; /* emulate panel edge as in screenshot */
+  margin: -18px -18px 16px -18px;
+  /* emulate panel edge as in screenshot */
 }
 
 .about-layout {
@@ -137,9 +143,11 @@ nav a:hover::after {
   padding-left: 20px;
   margin: 6px 0;
 }
+
 .resources li {
   margin: 8px 0;
 }
+
 .resources a {
   color: #1a0dab;
   text-decoration: underline;
@@ -154,6 +162,7 @@ footer {
   padding: 12px 0;
   font-size: 14px;
 }
+
 footer .year {
   color: #ffd1e4;
   margin-right: 6px;
@@ -164,9 +173,11 @@ footer .year {
   .container {
     grid-template-columns: 1fr;
   }
+
   .about-layout {
     grid-template-columns: 1fr;
   }
+
   .author-photo {
     display: block;
     margin: 0 auto;
