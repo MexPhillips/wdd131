@@ -93,9 +93,11 @@ main {
     padding: 2rem 1rem;
 }
 
-h1 {
+h1,
+h2 {
     font-family: var(--heading-font);
     color: var(--primary-color);
+    align-items: center;
 }
 
 .temple-grid {
