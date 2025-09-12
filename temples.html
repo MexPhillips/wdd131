@@ -16,14 +16,25 @@
     <!-- CSS -->
     <link rel="stylesheet" href="styles/temples.css">
     <link rel="stylesheet" href="styles/temples-large.css">
-
+    <script src="scripts/temples.js" defer></script>
 </head>
 
 <body>
     <header>
-        <h1>Temple Album</h1>
-        <button class="menubutton">☰</button>
-        <nav class="menuitems">
+        <div class="logo">Temple Album</div>
+        <nav class="navbar-large">
+            <a href="#">Home</a>
+            <a href="#">Old</a>
+            <a href="#">New</a>
+            <a href="#">Large</a>
+            <a href="#">Small</a>
+        </nav>
+        <button class="menu-toggle" aria-label="Toggle navigation menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </button>
+        <nav class="navbar-mobile">
             <a href="#">Home</a>
             <a href="#">Old</a>
             <a href="#">New</a>
@@ -31,30 +42,51 @@
             <a href="#">Small</a>
         </nav>
     </header>
-
     <main>
-        <section>
-            <h2>Temple 1</h2>
-            <p>Description of Temple 1.</p>
-        </section>
-
-        <section>
-            <h2>Temple 2</h2>
-            <p>Description of Temple 2.</p>
-        </section>
-
-        <section>
-            <h2>Temple 3</h2>
-            <p>Description of Temple 3.</p>
-        </section>
+        <h1>Home</h1>
+        <div class="temple-grid">
+            <figure>
+                <img src="images/abba_nigeria_temple.jpg" alt="abba_nigeria_temple Temple">
+                <figcaption>Abba Nigeria</figcaption>
+            </figure>
+            <figure>
+                <img src="images/accra_ghana_temple.jpg" alt="accra_ghana_temple">
+                <figcaption>Accra Ghana</figcaption>
+            </figure>
+            <figure>
+                <img src="images/albuquerque_temple.jpg" alt="albuquerque_temple">
+                <figcaption>Albuquerque Temple</figcaption>
+            </figure>
+            <figure>
+                <img src="images/anchorage_temple.jpg" alt="anchorage_temple">
+                <figcaption>Anchorage Temple</figcaption>
+            </figure>
+            <figure>
+                <img src="images/atlanta_temple.jpg" alt="atlanta_temple">
+                <figcaption>Atalanta Temple</figcaption>
+            </figure>
+            <figure>
+                <img src="images/bern_switzerland_temple.jpg" alt="bern_switzerland_temple">
+                <figcaption>Bern Switzerland</figcaption>
+            </figure>
+            <figure>
+                <img src="images/lds_temple_1.jpeg" alt="lds_temple_1">
+                <figcaption>Philadelphia</figcaption>
+            </figure>
+            <figure>
+                <img src="images/lds_temple_2.jpeg" alt="lds_temple_2">
+                <figcaption> Pennsylvania</figcaption>
+            </figure>
+            <figure>
+                <img src="images/lds_temple_3.jpeg" alt="lds_temple_3">
+                <figcaption>Oquirrh Mountain Utah</figcaption>
+            </figure>
+        </div>
     </main>
-
     <footer>
-        <p>&copy; 2025 | Phillip Kaluba</p>
+        <p>&copy;<span id="currentYear"></span> 🌸 Phillip Kaluba 🌸 Uganda</p>
+        <p>Last Modification: <span id="lastModified"></span></p>
     </footer>
-
-    <!-- JavaScript -->
-    <script src="scripts/temples.js"></script>
 </body>
 
 </html>

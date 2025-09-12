@@ -1,18 +1,23 @@
-/* Large screens - 500px and above */
-// Select the menu button and menu items
-const menubutton = document.querySelector('.menubutton');
-const menuitems = document.querySelector('.menuitems');
+document.addEventListener('DOMContentLoaded', () => {
+    // Dynamically set the current year in the footer
+    const currentYearSpan = document.getElementById('currentYear');
+    if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+    }
 
-// Toggle the 'open' class when the button is clicked
-menubutton.addEventListener('click', () => {
-    menuitems.classList.toggle('open');
-});
+    // Dynamically set the last modified date in the footer
+    const lastModifiedSpan = document.getElementById('lastModified');
+    if (lastModifiedSpan) {
+        lastModifiedSpan.textContent = document.lastModified;
+    }
 
-// Optional: ensure menu resets if window is resized
-window.addEventListener('resize', () => {
-    if (window.innerWidth >= 500) {
-        // Remove 'open' class on large screens so the menu shows normally
-        menuitems.classList.remove('open');
+    // Mobile menu toggle functionality
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileNav = document.querySelector('.navbar-mobile');
+
+    if (menuToggle && mobileNav) {
+        menuToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+        });
     }
 });
-
