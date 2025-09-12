@@ -1,0 +1,13 @@
+/* Large screens - 500px and above */
+@media screen and (min-width: 500px) {
+    .menuitems {
+        display: flex !important;
+        flex-direction: row;
+        gap: 1rem;
+        margin-top: 0;
+    }
+
+    .menubutton {
+        display: none;
+    }
+}

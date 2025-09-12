@@ -1,0 +1,64 @@
+/* Base Styles - Small screens */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #0077b6;
+    color: white;
+    padding: 1rem;
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.menubutton {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.menuitems {
+    display: none;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.menuitems a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 0;
+}
+
+.menuitems.open {
+    display: flex;
+}
+
+main {
+    max-width: 640px;
+    margin: 1rem auto;
+    padding: 1rem;
+}
+
+section {
+    background-color: #ffffff;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #e0e0e0;
+}
