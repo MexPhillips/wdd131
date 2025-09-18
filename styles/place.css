@@ -10,6 +10,10 @@
     --dark-color: #333;
 }
 
+html {
+    font-size: 18px;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -108,9 +112,43 @@ footer p {
     margin: 0.5rem 0;
 }
 
+a:focus,
+button:focus,
+input:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    background: var(--accent-color);
+    color: #000;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    left: 10px;
+    top: 10px;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
 /* --- Media Query for Larger Screens --- */
 @media (min-width: 800px) {
     .grid-container {
         grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 799px) {
+    .card {
+        margin-bottom: 1.5rem;
     }
 }
