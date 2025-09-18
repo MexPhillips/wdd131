@@ -63,6 +63,14 @@ main {
     padding: 1.5rem;
 }
 
+.card::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background: var(--accent-color);
+    margin-top: 1rem;
+}
+
 .data-card h2,
 .weather-card h2 {
     background-color: var(--primary-color);
