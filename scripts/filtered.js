@@ -1,4 +1,4 @@
-// scripts/temples.js
+// scripts/filtered.js
 
 // 1️⃣ Temple Data Array
 const temples = [
@@ -51,9 +51,6 @@ const temples = [
         area: 116642,
         imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
     },
-    // ➕ Added 3+ more temples below
-
-
     {
         templeName: "Salt Lake Temple",
         location: "Salt Lake City, Utah, United States",
@@ -84,6 +81,7 @@ const temples = [
 function getDedicatedYear(dateStr) {
     return parseInt(dateStr.split(",")[0]);
 }
+
 function getTempleType(temple) {
     const year = getDedicatedYear(temple.dedicated);
     let type = [];
@@ -99,6 +97,12 @@ const templeGrid = document.getElementById("templeGrid");
 
 function renderTemples(list) {
     templeGrid.innerHTML = "";
+    if (!list || list.length === 0) {
+        const p = document.createElement('p');
+        p.textContent = 'No temples match that filter.';
+        templeGrid.appendChild(p);
+        return;
+    }
     list.forEach(t => {
         const figure = document.createElement("figure");
         figure.setAttribute("data-type", getTempleType(t));
@@ -124,44 +128,47 @@ function filterTemples(type) {
     }
 }
 
-// Set active button
+// Set active link
 function setActiveFilter(filter) {
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.setAttribute('aria-pressed', btn.getAttribute('data-filter') === filter ? 'true' : 'false');
+    document.querySelectorAll('.filter-link').forEach(link => {
+        link.classList.remove('active');
+    });
+    document.querySelectorAll(`.filter-link[data-filter="${filter}"]`).forEach(link => {
+        link.classList.add('active');
     });
 }
 
-// 4️⃣ Event Listeners for Navigation
 document.addEventListener("DOMContentLoaded", () => {
-    // 5️⃣ Mobile Menu Toggle - Moved inside DOMContentLoaded
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navbarMobile = document.getElementById("mobile-nav");
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
 
-    if (menuToggle && navbarMobile) {
-        menuToggle.addEventListener("click", () => {
-            const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
-            menuToggle.setAttribute("aria-expanded", !isExpanded);
-            navbarMobile.classList.toggle("active");
+    if (menuToggle && mobileNav) {
+        menuToggle.addEventListener('click', () => {
+            const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !expanded);
+            mobileNav.classList.toggle('active');
         });
     }
 
-    // 4️⃣ Event Listeners for Navigation - Moved inside DOMContentLoaded
+    // Event Listeners for Navigation
     renderTemples(temples);
     setActiveFilter('all');
-    document.querySelectorAll(".filter-btn").forEach(btn => {
-        btn.addEventListener("click", e => {
-            const filter = btn.getAttribute("data-filter");
+    document.querySelectorAll(".filter-link").forEach(link => {
+        link.addEventListener("click", e => {
+            e.preventDefault(); // Prevents page reload
+            const filter = link.getAttribute("data-filter");
             setActiveFilter(filter);
             renderTemples(filterTemples(filter));
-            // Close mobile menu after clicking a filter button
-            if (navbarMobile.classList.contains("active")) {
-                navbarMobile.classList.remove("active");
-                menuToggle.setAttribute("aria-expanded", "false");
+            // Close mobile menu after clicking a filter
+            if (mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
             }
         });
     });
 
-    // 6️⃣ Footer Updates - Moved inside DOMContentLoaded
+    // Footer Updates
     document.getElementById("currentYear").textContent = new Date().getFullYear();
     document.getElementById("lastModified").textContent = document.lastModified;
 

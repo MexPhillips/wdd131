@@ -272,3 +272,34 @@ button:focus {
         display: none !important;
     }
 }
+
+/* These styles are for the buttons. I have added .filter-link to them */
+.filter-btn,
+.navbar-large button,
+.filter-link,
+.navbar-large a {
+    background: var(--secondary-color);
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 0.2rem 0.3rem;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(76, 0, 130, 0.08);
+    transition: background 0.2s, color 0.2s, transform 0.1s;
+    outline: none;
+    text-decoration: none;
+    /* Added this to remove the underline */
+    display: inline-block;
+}
+
+/* Updated this section to include .filter-link */
+.filter-link:hover,
+.filter-link:focus,
+.navbar-large a:hover,
+.navbar-large a:focus {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+}

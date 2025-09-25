@@ -87,7 +87,6 @@
         padding: 2rem 0;
     }
 
-    /* Hide hamburger/menu-toggle button on desktop screens */
     .menu-toggle {
         display: none !important;
     }
