@@ -22,6 +22,7 @@
     <header>
         <div class="header-inner">
             <div class="logo">Temple Album</div>
+
             <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false"
                 aria-controls="mobile-nav">
                 <span class="bar"></span>
@@ -29,29 +30,27 @@
                 <span class="bar"></span>
             </button>
         </div>
+        <nav class="navbar-large">
+            <button type="button" data-filter="all" class="filter-btn" aria-pressed="true">Home</button>
+            <button type="button" data-filter="old" class="filter-btn" aria-pressed="false">Old</button>
+            <button type="button" data-filter="new" class="filter-btn" aria-pressed="false">New</button>
+            <button type="button" data-filter="large" class="filter-btn" aria-pressed="false">Large</button>
+            <button type="button" data-filter="small" class="filter-btn" aria-pressed="false">Small</button>
+        </nav>
+        <nav class="navbar-mobile" id="mobile-nav" aria-label="Mobile navigation">
+            <button type="button" data-filter="all" class="filter-btn" aria-pressed="true">Home</button>
+            <button type="button" data-filter="old" class="filter-btn" aria-pressed="false">Old</button>
+            <button type="button" data-filter="new" class="filter-btn" aria-pressed="false">New</button>
+            <button type="button" data-filter="large" class="filter-btn" aria-pressed="false">Large</button>
+            <button type="button" data-filter="small" class="filter-btn" aria-pressed="false">Small</button>
+        </nav>
     </header>
-
-    <nav class="navbar-large">
-        <button type="button" data-filter="all" class="filter-btn" aria-pressed="true">Home</button>
-        <button type="button" data-filter="old" class="filter-btn" aria-pressed="false">Old</button>
-        <button type="button" data-filter="new" class="filter-btn" aria-pressed="false">New</button>
-        <button type="button" data-filter="large" class="filter-btn" aria-pressed="false">Large</button>
-        <button type="button" data-filter="small" class="filter-btn" aria-pressed="false">Small</button>
-    </nav>
-    <nav class="navbar-mobile" id="mobile-nav" aria-label="Mobile navigation">
-        <button type="button" data-filter="all" class="filter-btn" aria-pressed="true">Home</button>
-        <button type="button" data-filter="old" class="filter-btn" aria-pressed="false">Old</button>
-        <button type="button" data-filter="new" class="filter-btn" aria-pressed="false">New</button>
-        <button type="button" data-filter="large" class="filter-btn" aria-pressed="false">Large</button>
-        <button type="button" data-filter="small" class="filter-btn" aria-pressed="false">Small</button>
-    </nav>
 
     <main>
         <h1>TEMPLE</h1>
         <h2>Temple Gallery</h2>
 
         <div class="temple-grid" id="templeGrid" aria-live="polite">
-
         </div>
 
         <noscript>
