@@ -1,0 +1,62 @@
+@media (min-width: 768px) {
+    header {
+        padding: 1rem 2rem;
+    }
+
+    .header-inner {
+        justify-content: flex-start;
+    }
+
+    .logo {
+        margin-right: 2rem;
+    }
+
+    .navbar-large {
+        display: flex;
+        gap: 1.25rem;
+        align-items: center;
+    }
+
+    .navbar-large a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.05rem;
+        transition: color 0.2s ease;
+    }
+
+    .navbar-large a:hover {
+        color: var(--accent1-color);
+    }
+
+    .menu-toggle,
+    .navbar-mobile {
+        display: none;
+    }
+
+    main {
+        padding: 2.5rem 3rem;
+    }
+
+    /* Grid becomes 3 columns on larger screens */
+    .temple-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        align-items: start;
+        margin-top: 2rem;
+    }
+
+    figure {
+        max-width: none;
+    }
+}
+
+@media (min-width: 1100px) {
+    main {
+        padding: 3rem;
+    }
+
+    .temple-grid {
+        gap: 2rem;
+    }
+}
