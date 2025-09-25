@@ -80,6 +80,20 @@ const temples = [
     }
 ];
 
+// Helper functions
+function getDedicatedYear(dateStr) {
+    return parseInt(dateStr.split(",")[0]);
+}
+function getTempleType(temple) {
+    const year = getDedicatedYear(temple.dedicated);
+    let type = [];
+    if (year < 1900) type.push("old");
+    else if (year >= 2000) type.push("new");
+    if (temple.area >= 90000) type.push("large");
+    else if (temple.area < 90000) type.push("small");
+    return type.join(" ");
+}
+
 // 2️⃣ Render Function
 const templeGrid = document.getElementById("templeGrid");
 
@@ -87,13 +101,14 @@ function renderTemples(list) {
     templeGrid.innerHTML = "";
     list.forEach(t => {
         const figure = document.createElement("figure");
+        figure.setAttribute("data-type", getTempleType(t));
         figure.innerHTML = `
       <img src="${t.imageUrl}" alt="${t.templeName}" loading="lazy">
       <figcaption>${t.templeName}</figcaption>
       <div class="temple-meta">
-        <p>${t.location}</p>
-        <p>Dedicated: ${t.dedicated}</p>
-        <p>Area: ${t.area.toLocaleString()} sq ft</p>
+        <div><strong>Location:</strong> ${t.location}</div>
+        <div><strong>Dedicated:</strong> ${t.dedicated}</div>
+        <div><strong>Area:</strong> ${t.area.toLocaleString()} sq ft</div>
       </div>
     `;
         templeGrid.appendChild(figure);
@@ -101,44 +116,53 @@ function renderTemples(list) {
 }
 
 // 3️⃣ Filter Logic
-function parseYear(dateStr) {
-    return parseInt(dateStr.split(",")[0]);
-}
-
-function filterTemples(criteria) {
-    switch (criteria) {
-        case "old":
-            return temples.filter(t => parseYear(t.dedicated) < 1900);
-        case "new":
-            return temples.filter(t => parseYear(t.dedicated) >= 2000);
-        case "large":
-            return temples.filter(t => t.area > 90000);
-        case "small":
-            return temples.filter(t => t.area < 10000);
-        default:
-            return temples;
+function filterTemples(type) {
+    if (type === "all") {
+        return temples;
+    } else {
+        return temples.filter(t => getTempleType(t).includes(type));
     }
 }
 
-// 4️⃣ Event Listeners for Navigation
-document.querySelectorAll(".filter-link").forEach(link => {
-    link.addEventListener("click", e => {
-        e.preventDefault();
-        const filter = e.target.getAttribute("data-filter");
-        renderTemples(filterTemples(filter));
+// Set active button
+function setActiveFilter(filter) {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.setAttribute('aria-pressed', btn.getAttribute('data-filter') === filter ? 'true' : 'false');
     });
+}
+
+// 4️⃣ Event Listeners for Navigation
+document.addEventListener("DOMContentLoaded", () => {
+    // 5️⃣ Mobile Menu Toggle - Moved inside DOMContentLoaded
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navbarMobile = document.getElementById("mobile-nav");
+
+    if (menuToggle && navbarMobile) {
+        menuToggle.addEventListener("click", () => {
+            const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+            menuToggle.setAttribute("aria-expanded", !isExpanded);
+            navbarMobile.classList.toggle("active");
+        });
+    }
+
+    // 4️⃣ Event Listeners for Navigation - Moved inside DOMContentLoaded
+    renderTemples(temples);
+    setActiveFilter('all');
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+        btn.addEventListener("click", e => {
+            const filter = btn.getAttribute("data-filter");
+            setActiveFilter(filter);
+            renderTemples(filterTemples(filter));
+            // Close mobile menu after clicking a filter button
+            if (navbarMobile.classList.contains("active")) {
+                navbarMobile.classList.remove("active");
+                menuToggle.setAttribute("aria-expanded", "false");
+            }
+        });
+    });
+
+    // 6️⃣ Footer Updates - Moved inside DOMContentLoaded
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+    document.getElementById("lastModified").textContent = document.lastModified;
+
 });
-
-// 5️⃣ Mobile Menu Toggle
-const menuToggle = document.querySelector(".menu-toggle");
-const navbarMobile = document.querySelector(".navbar-mobile");
-menuToggle.addEventListener("click", () => {
-    navbarMobile.classList.toggle("active");
-});
-
-// 6️⃣ Footer Updates
-document.getElementById("currentYear").textContent = new Date().getFullYear();
-document.getElementById("lastModified").textContent = document.lastModified;
-
-// ✅ Initial Render
-renderTemples(temples);

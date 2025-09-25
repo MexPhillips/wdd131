@@ -56,19 +56,28 @@ header {
     display: none;
 }
 
+/* Make the filter button bar sticky at the top */
+.navbar-large {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--primary-color);
+    padding: 0.5rem 0;
+    box-shadow: 0 2px 8px rgba(76, 0, 130, 0.08);
+}
+
 /* Mobile menu button */
 .menu-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    gap: 4px;
-    padding: 0;
-    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    border: none;
+    cursor: pointer;
+    margin: 0.5rem 0.5rem 0 0.5rem;
+    z-index: 200;
 }
 
 .menu-toggle:focus {
@@ -76,24 +85,26 @@ header {
     border-radius: 6px;
 }
 
-.bar {
-    width: 100%;
-    height: 3px;
-    background-color: white;
-    transition: all 0.3s ease;
+.menu-toggle .bar {
+    height: 4px;
+    width: 28px;
+    background: #fff;
+    margin: 3px 0;
+    border-radius: 2px;
+    transition: 0.3s;
 }
 
 /* Mobile nav: hidden by default */
 .navbar-mobile {
     display: none;
     flex-direction: column;
-    background-color: var(--secondary-color);
+    background: var(--primary-color);
+    padding: 0.5rem 1rem;
     position: absolute;
-    top: 100%;
+    top: 60px;
     left: 0;
     width: 100%;
-    z-index: 40;
-    border-bottom: 4px solid rgba(0, 0, 0, 0.05);
+    z-index: 150;
 }
 
 .navbar-mobile.active {
@@ -215,4 +226,49 @@ button:focus {
     outline: 3px solid rgba(75, 0, 130, 0.25);
     outline-offset: 2px;
     border-radius: 6px;
+}
+
+/* Make filter buttons smaller and tidy */
+.filter-btn,
+.navbar-large button {
+    background: var(--secondary-color);
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 0.2rem 0.3rem;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(76, 0, 130, 0.08);
+    transition: background 0.2s, color 0.2s, transform 0.1s;
+    outline: none;
+}
+
+.filter-btn:hover,
+.filter-btn:focus,
+.navbar-large button:hover,
+.navbar-large button:focus {
+    background: var(--accent1-color);
+    color: var(--primary-color);
+    transform: translateY(-1px) scale(1.03);
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.filter-btn[aria-pressed="true"] {
+    background: var(--primary-color);
+    color: #fff;
+    border: 2px solid var(--accent1-color);
+    box-shadow: 0 2px 8px rgba(76, 0, 130, 0.12);
+}
+
+@media (min-width: 800px) {
+    .menu-toggle {
+        display: none !important;
+    }
+
+    .navbar-mobile {
+        display: none !important;
+    }
 }

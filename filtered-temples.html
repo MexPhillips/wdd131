@@ -8,12 +8,10 @@
     <meta name="author" content="Phillip Kaluba" />
     <title>Temple Album</title>
 
-    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="styles/filtered.css">
     <link rel="stylesheet" href="styles/filtered-large.css">
 
@@ -24,15 +22,6 @@
     <header>
         <div class="header-inner">
             <div class="logo">Temple Album</div>
-
-            <nav class="navbar-large" aria-label="Primary">
-                <button type="button" data-filter="all" class="filter-btn" id="filter-all">Home</button>
-                <button type="button" data-filter="old" class="filter-btn">Old</button>
-                <button type="button" data-filter="new" class="filter-btn">New</button>
-                <button type="button" data-filter="large" class="filter-btn">Large</button>
-                <button type="button" data-filter="small" class="filter-btn">Small</button>
-            </nav>
-
             <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false"
                 aria-controls="mobile-nav">
                 <span class="bar"></span>
@@ -40,15 +29,22 @@
                 <span class="bar"></span>
             </button>
         </div>
-
-        <nav class="navbar-mobile" id="mobile-nav" aria-label="Mobile primary">
-            <button type="button" data-filter="all" class="filter-btn">Home</button>
-            <button type="button" data-filter="old" class="filter-btn">Old</button>
-            <button type="button" data-filter="new" class="filter-btn">New</button>
-            <button type="button" data-filter="large" class="filter-btn">Large</button>
-            <button type="button" data-filter="small" class="filter-btn">Small</button>
-        </nav>
     </header>
+
+    <nav class="navbar-large">
+        <button type="button" data-filter="all" class="filter-btn" aria-pressed="true">Home</button>
+        <button type="button" data-filter="old" class="filter-btn" aria-pressed="false">Old</button>
+        <button type="button" data-filter="new" class="filter-btn" aria-pressed="false">New</button>
+        <button type="button" data-filter="large" class="filter-btn" aria-pressed="false">Large</button>
+        <button type="button" data-filter="small" class="filter-btn" aria-pressed="false">Small</button>
+    </nav>
+    <nav class="navbar-mobile" id="mobile-nav" aria-label="Mobile navigation">
+        <button type="button" data-filter="all" class="filter-btn" aria-pressed="true">Home</button>
+        <button type="button" data-filter="old" class="filter-btn" aria-pressed="false">Old</button>
+        <button type="button" data-filter="new" class="filter-btn" aria-pressed="false">New</button>
+        <button type="button" data-filter="large" class="filter-btn" aria-pressed="false">Large</button>
+        <button type="button" data-filter="small" class="filter-btn" aria-pressed="false">Small</button>
+    </nav>
 
     <main>
         <h1>TEMPLE</h1>
