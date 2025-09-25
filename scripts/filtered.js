@@ -88,7 +88,7 @@ function renderTemples(list) {
     list.forEach(t => {
         const figure = document.createElement("figure");
         figure.innerHTML = `
-      <img src="${t.imageUrl}" alt="${t.templeName}">
+      <img src="${t.imageUrl}" alt="${t.templeName}" loading="lazy">
       <figcaption>${t.templeName}</figcaption>
       <div class="temple-meta">
         <p>${t.location}</p>
