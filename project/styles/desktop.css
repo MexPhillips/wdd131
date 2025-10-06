@@ -1,0 +1,87 @@
+/* ====================================
+   2. DESKTOP-SPECIFIC CSS (desktop.css)
+   ==================================== */
+
+@media (min-width: 768px) {
+    
+    /* === HEADER & NAVIGATION === */
+    .nav-toggle {
+        display: none;
+    }
+
+    .main-nav {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        height: auto;
+        padding-top: 0;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    .nav-link {
+        padding: 0;
+        margin-left: 30px;
+        border-bottom: none;
+        transition: color 0.3s, text-shadow 0.3s;
+    }
+
+    .nav-link.active {
+        text-shadow: 0 0 10px var(--color-accent-orange);
+    }
+    
+    /* === HERO SECTION === */
+    .hero-section {
+        height: 60vh;
+    }
+
+    .hero-content h1 {
+        font-size: 4.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .cta-buttons {
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    .btn {
+        width: auto;
+        max-width: none;
+    }
+
+    /* === CONTENT GRID LAYOUTS === */
+    .card-grid {
+        /* 3-column layout for desktop */
+        grid-template-columns: repeat(3, 1fr); 
+    }
+    
+    .tournament-preview-grid {
+        /* Only 2 columns needed for the Home page preview */
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* === PLAYERS PAGE === */
+    .search-bar input {
+        max-width: 400px;
+    }
+    
+    /* === CONNECT PAGE === */
+    .connect-layout {
+        flex-direction: row;
+        gap: 50px;
+        align-items: flex-start;
+    }
+    
+    .contact-form-container {
+        flex: 2; /* Takes up more space */
+    }
+    
+    .connect-info-sidebar {
+        flex: 1; /* Sidebar takes less space */
+    }
+}
