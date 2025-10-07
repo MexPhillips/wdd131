@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="author" content="Phillip Kaluba">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>Product Review</title>
+    
+    <meta name="author" content="kaluba Phillip"> 
     <meta name="description" content="Product review form for WDD 131 assignment.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="styles/main.css">
+    
     <script src="scripts/form.js" defer></script>
 </head>
 <body>
@@ -30,7 +33,7 @@
 
             <fieldset class="rating-fieldset">
                 <legend>Overall Rating</legend>
-                <div class="rating-options">
+                <div class="rating-options" role="radiogroup" aria-label="Product Overall Rating">
                     <label>
                         <input type="radio" id="rating1" name="overallRating" value="1" required>
                         ★
@@ -62,19 +65,19 @@
             <fieldset>
                 <legend>Which features did you find useful in the product? (Check all that apply)</legend>
                 <div class="checkbox-group">
-                    <label>
+                    <label for="featureDurability">
                         <input type="checkbox" id="featureDurability" name="feature" value="durability">
                         Durability
                     </label>
-                    <label>
+                    <label for="featureEaseOfUse">
                         <input type="checkbox" id="featureEaseOfUse" name="feature" value="easeOfUse">
                         Ease of Use
                     </label>
-                    <label>
+                    <label for="featurePerformance">
                         <input type="checkbox" id="featurePerformance" name="feature" value="performance">
                         Performance
                     </label>
-                    <label>
+                    <label for="featureDesign">
                         <input type="checkbox" id="featureDesign" name="feature" value="design">
                         Design
                     </label>
@@ -97,7 +100,7 @@
     </main>
 
     <footer>
-        <p>&copy;2025 🌸 Kaluba Phillip 🌸</p>
+        <p>&copy;2025 🌸 Phillip Kaluba 🌸</p>
         <p>Uganda</p>
         <p>Last Modification: <span id="lastModified"></span></p>
     </footer>
