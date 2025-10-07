@@ -6,13 +6,16 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9; /* Light background for the overall page */
+    /* Updated to use the embedded Google Font */
+    font-family: 'Roboto', Arial, sans-serif; 
+    background-color: #f4f4f9; 
     color: #333;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
+
+
 
 header {
     background-color: #5d355b; /* Dark purple header background */
