@@ -31,22 +31,48 @@
         text-shadow: 0 0 10px var(--color-accent-orange);
     }
     
-    /* === HERO SECTION === */
+    
     .hero-section {
         height: 60vh;
+        position: relative;
     }
+    .hero-section::before {
+        content: ''; 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+        background-image: url('../images/hero2.jpg'); 
+        background-position: center; 
+        background-size: cover; 
+        background-repeat: no-repeat; 
+        opacity: 0.3; 
+        z-index: 0; 
+       }
+
+    
+    
+    
 
     .hero-content h1 {
         font-size: 4.5rem;
+        position: relative;
     }
 
     .hero-content p {
         font-size: 1.2rem;
+        position: relative;
     }
 
     .cta-buttons {
-        flex-direction: row;
+        display: flex;
+        flex-direction: column;
         gap: 30px;
+        position: relative;
+        z-index: 1;
+        
+        
     }
 
     .btn {
@@ -56,12 +82,10 @@
 
     /* === CONTENT GRID LAYOUTS === */
     .card-grid {
-        /* 3-column layout for desktop */
         grid-template-columns: repeat(3, 1fr); 
     }
     
     .tournament-preview-grid {
-        /* Only 2 columns needed for the Home page preview */
         grid-template-columns: repeat(2, 1fr);
     }
     
@@ -78,10 +102,16 @@
     }
     
     .contact-form-container {
-        flex: 2; /* Takes up more space */
+        flex: 2; 
     }
     
     .connect-info-sidebar {
-        flex: 1; /* Sidebar takes less space */
+        flex: 1; 
     }
+    .subject {
+        background-color: black;
+        text-decoration-color: brown;
+
+    }
+    
 }
